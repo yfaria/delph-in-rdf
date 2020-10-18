@@ -325,7 +325,7 @@ erg:prog
  rdfs:domain erg:e ;
  rdfs:range rdfs:Literal . #?? pode ser +, -
 
-mrs:perf
+erg:perf
  a rdf:Property ;
  rdfs:domain erg:e ;
  rdfs:range rdfs:Literal . #?? pode ser -
@@ -336,13 +336,13 @@ mrs:cfrom
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
  rdfs:range rdfs:Literal ;
- rdfs:comment "The index of the leftmost character in sent"@en-us.
+ rdfs:comment "The index of the leftmost character in sent"@en-us .
 
 mrs:cto
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
  rdfs:range rdfs:Literal ;
- rdfs:comment "The index of the rightmost character in sent"@en-us.
+ rdfs:comment "The index of the rightmost character in sent"@en-us .
  
 mrs:arg0
  a rdf:Property ;
