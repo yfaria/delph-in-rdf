@@ -21,7 +21,6 @@ eds:text
  rdfs:range rdfs:Literal ;
  rdfs:comment "The sentence that originated the EDS"@en-us.
 
-
 eds:Node
  a rdfs:Class ;
  rdfs:comment "The class of the nodes that forms an EDS graph"@en-us .
@@ -275,3 +274,5 @@ eds:u
 # Understand what is the ideia of "distinguished variable" and how it influences the interpretation of EDS.
 
 # Minimize redundancies with EDS schema if possible.
+
+# Replace cfrom and cto by lnk (?)
