@@ -68,7 +68,7 @@ def __nodes_to_rdf__(eds, graph, NODES):
             graph.add(nodeIRI, EDS.carg, Literal(node.carg))
 
 
-def __edges_to_rdf__(eds, graph, NODES, EDGES):
+def __edges_to_rdf__(eds, graph, NODES):
     """
     Creates nodes of variables and nodes specifying their properties.
 
@@ -78,8 +78,6 @@ def __edges_to_rdf__(eds, graph, NODES, EDGES):
     representation.
 
     NODES - the IRI namespace dedicated to nodes.
-    
-    EDGES - the IRI namespace dedicated to edges.
     """
     for edge in eds.edges:
         graph.add(NODES[edge[0]], EDS[edge[1].lower()], NODES[edge[2]])
@@ -126,14 +124,12 @@ def eds_to_rdf(e, prefix: str, identifier, iname="edsi#eds", graph=None, out=Non
     graph.add((edsi, RDF.type, EDS.EDS))
 
     NODES = Namespace(namespace + "nodes#")
-    EDGES = Namespace(namespace + "edges#")
-
     __nodes_to_rdf__(e, graph, NODES)
 
     #Adding top
     graph.add((edsi, eds['hasTop'], NODES[e.top]))
     
-    __edges_to_rdf__(e, graph, NODES, EDGES)
+    __edges_to_rdf__(e, graph, NODES)
     
     # add text as one graph node if it's given
     if text: graph.add((mrsi, MRS.text, Literal(text)))
