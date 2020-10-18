@@ -335,13 +335,13 @@ mrs:perf
 mrs:cfrom
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
- rdfs:range rdfs:Literal 
+ rdfs:range rdfs:Literal ;
  rdfs:comment "The index of the leftmost character in sent"@en-us.
 
- mrs:cto
+mrs:cto
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
- rdfs:range rdfs:Literal 
+ rdfs:range rdfs:Literal ;
  rdfs:comment "The index of the rightmost character in sent"@en-us.
  
 mrs:arg0
@@ -353,7 +353,9 @@ mrs:arg0
 mrs:arg1
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
- rdfs:range erg:u .mrs:arg2
+ rdfs:range erg:u .
+
+mrs:arg2
  a rdf:Property ;
  rdfs:domain mrs:ElementaryPredication ;
  rdfs:range erg:u .
