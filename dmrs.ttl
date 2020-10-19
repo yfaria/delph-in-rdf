@@ -188,6 +188,9 @@ dmrs:neq
 dmrs:eq
  a dmrs:ScopalRelation .
 
+dmrs:heq
+ a dmrs:ScopalRelation .
+
 
 # About properties
 
