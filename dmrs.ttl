@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dmrs: <http://www.delph-in.net/schema/dmrs#> .
-@prefix dmrstype: <http://www.delph-in.net/schema/dmrs#type> .
+@prefix dmrstype: <http://www.delph-in.net/schema/dmrs#type#> .
 @prefix erg: <http://www.delph-in.net/schema/erg#> .
 
 dmrs:DMRS
@@ -148,44 +148,44 @@ dmrs:hasName
 
 #About roles:
 #Use testsuite to find the others.
-eds:arg1
+dmrs:arg1
  a dmrs:Role .
 
-eds:arg2
+dmrs:arg2
  a dmrs:Role .
 
-eds:arg3
+dmrs:arg3
  a dmrs:Role .
 
-eds:arg4
+dmrs:arg4
  a dmrs:Role .
 
-eds:rstr
+dmrs:rstr
  a dmrs:Role .
 
-eds:l-hndl
+dmrs:l-hndl
  a dmrs:Role .
 
-eds:r-hndl
+dmrs:r-hndl
  a dmrs:Role .
 
-eds:l-index
+dmrs:l-index
  a dmrs:Role .
 
-eds:r-index
+dmrs:r-index
  a dmrs:Role .
 
-eds:mod
+dmrs:mod
  a dmrs:Role .
 
 
-eds:h
+dmrs:h
  a dmrs:ScopalRelation .
 
-eds:neq
+dmrs:neq
  a dmrs:ScopalRelation .
 
-eds:eq
+dmrs:eq
  a dmrs:ScopalRelation .
 
 
@@ -254,7 +254,7 @@ dmrs:perf
 
 dmrs:cvarsort
  a rdf:Property ;
- rdfs:subPropertyOf dmrs:hasSortInfo ;
+ # rdfs:subPropertyOf dmrs:hasSortInfo ;
  rdfs:domain dmrs:Node ;
  rdfs:range dmrs:NodeType .
 
