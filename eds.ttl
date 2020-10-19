@@ -3,6 +3,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix eds: <http://www.delph-in.net/schema/eds#> .
+@prefix edstype: <http://www.delph-in.net/schema/eds#type#> .
+
 
 # Most design choices were made based on
 # moin.delph-in.net/EdsTop ,
@@ -67,16 +69,19 @@ eds:hasNodeType
 
 #-------------
 # This probably needs to change:
-eds:x
+edstype:x
  a eds:NodeType .
 
-eds:e
+edstype:e
  a eds:NodeType .
  
-eds:i
+edstype:i
  a eds:NodeType .
 
-eds:p #?
+edstype:p 
+ a eds:NodeType .
+
+edstype:u
  a eds:NodeType .
 #-------------
 

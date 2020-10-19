@@ -10,6 +10,7 @@ from delphin import eds
 
 # some useful namespaces
 EDS = Namespace("http://www.delph-in.net/schema/eds#")
+EDSTYPE = Namespace("http://www.delph-in.net/schema/eds#type#")
 ERG = Namespace("http://www.delph-in.net/schema/erg#")
 
 def __nodes_to_rdf__(eds, graph, NODES):
@@ -58,7 +59,7 @@ def __nodes_to_rdf__(eds, graph, NODES):
         
         # type of node:
         if node.type is not None:
-            graph.add((nodeIRI, EDS.hasNodeType, Literal(EDS[node.type])))
+            graph.add((nodeIRI, EDS.hasNodeType, EDSTYPE[node.type]))
         
         # properties
         for prop in node.properties.items():
