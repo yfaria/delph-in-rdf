@@ -13,23 +13,26 @@ EDS = Namespace("http://www.delph-in.net/schema/eds#")
 EDSTYPE = Namespace("http://www.delph-in.net/schema/eds#type#")
 ERG = Namespace("http://www.delph-in.net/schema/erg#")
 
-def __nodes_to_rdf__(eds, graph, NODES):
+def __nodes_to_rdf__(e, graph, edsi, NODES):
     """
     Creates nodes of variables and nodes specifying their properties.
 
-    eds - a delphin eds instance to be parsed into RDF format.
+    e - a delphin eds instance to be parsed into RDF format.
     
     graph - and rdflib graph that is used to store the EDS as RDF
     representation.
+    
+    edsi - The URI of the EDS instance being parsed.
 
     NODES - the URI namespace dedicated to nodes.
     """
-    for node in eds.nodes:
+    for node in e.nodes:
         nodeIRI = NODES[node.id]
         nodePredIRI = NODES[node.id + "#predicate"]
         
         #Instantiate the Node
         graph.add((nodeIRI, RDF.type, EDS.Node))
+        graph.add((edsi, EDS.hasNode, nodeIRI))
         
         #typing the predicate
         if delphin.predicate.is_surface(node.predicate):
@@ -70,18 +73,18 @@ def __nodes_to_rdf__(eds, graph, NODES):
             graph.add((nodeIRI, EDS.carg, Literal(node.carg)))
 
 
-def __edges_to_rdf__(eds, graph, NODES):
+def __edges_to_rdf__(e, graph, NODES):
     """
     Creates nodes of variables and nodes specifying their properties.
 
-    eds - a delphin eds instance to be parsed into RDF format.
+    e - a delphin eds instance to be parsed into RDF format.
     
     graph - and rdflib graph that is used to store the EDS as RDF
     representation.
 
     NODES - the IRI namespace dedicated to nodes.
     """
-    for edge in eds.edges:
+    for edge in e.edges:
         graph.add((NODES[edge[0]], EDS[edge[1].lower()], NODES[edge[2]]))
         
 
@@ -126,7 +129,7 @@ def eds_to_rdf(e, prefix: str, identifier, iname="edsi#eds", graph=None, out=Non
     graph.add((edsi, RDF.type, EDS.EDS))
 
     NODES = Namespace(namespace + "nodes#")
-    __nodes_to_rdf__(e, graph, NODES)
+    __nodes_to_rdf__(e, graph, edsi, NODES)
 
     #Adding top
     graph.add((edsi, eds['hasTop'], NODES[e.top]))
