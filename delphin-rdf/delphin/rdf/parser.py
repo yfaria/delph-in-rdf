@@ -72,10 +72,10 @@ def __rels_to_rdf__(m, rels, graph, mrsi, RELS, VARS):
             graph.add((pred_rel, RDF.type, MRS.Predicate)) #revise
             #put lemma or name?
          
-        if (splittedPredicate[1]):
+        if splittedPredicate[1] is not None:
             graph.add((pred_rel, MRS.hasPos, MRS[splittedPredicate[1]]))
             
-        if (splittedPredicate[2]):
+        if splittedPredicate[2] is not None:
             graph.add((pred_rel, MRS.hasSense, Literal(splittedPredicate[2])))
 
         graph.add((rdf_rel, MRS.cto, Literal(mrs_rel.cto)))     # integer
@@ -186,7 +186,7 @@ def mrs_to_rdf(m, prefix: str, identifier, iname="mrsi#mrs", graph=None, out=Non
     """
     
     # making sure of the well formedness of the MRS (remove ?)
-    if (not(delphin.mrs.is_well_formed(m))):
+    if not(delphin.mrs.is_well_formed(m)):
         print("MRS passed is not well formed")
         return graph
     

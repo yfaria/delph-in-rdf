@@ -45,19 +45,19 @@ def __nodes_to_rdf__(eds, graph, NODES):
         # surface and its parts:
         splittedPredicate = delphin.predicate.split(delphin.predicate.normalize(node.predicate))
         graph.add((nodePredIRI, EDS.hasLemma, Literal(splittedPredicate[0])))
-        if splittedPredicate[1]:
+        if splittedPredicate[1] is not None:
             graph.add((nodePredIRI, EDS.hasPos, EDS[splittedPredicate[1]]))
-        if splittedPredicate[2]:
+        if splittedPredicate[2] is not None:
             graph.add((nodePredIRI, EDS.hasSense, Literal(splittedPredicate[2])))
         
         #lnk:
-        if node.cfrom:
+        if node.cfrom is not None:
             graph.add((nodeIRI, EDS.cfrom, Literal(node.cfrom)))
-        if node.cto:
+        if node.cto is not None:
             graph.add((nodeIRI, EDS.cto, Literal(node.cto)))
         
         # type of node:
-        if node.type:
+        if node.type is not None:
             graph.add((nodeIRI, EDS.hasNodeType, Literal(EDS[node.type])))
         
         # properties
