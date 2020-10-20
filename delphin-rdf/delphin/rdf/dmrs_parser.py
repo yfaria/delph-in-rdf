@@ -6,7 +6,7 @@ from rdflib import URIRef
 from rdflib import Namespace
 
 import delphin  
-from delphin import mrs
+from delphin import dmrs
 
 # some usefull namespaces
 DMRS = Namespace("http://www.delph-in.net/schema/dmrs#")
@@ -122,10 +122,10 @@ def dmrs_to_rdf(d, prefix: str, identifier, iname="dmrsi#dmrs", graph=None, out=
     identifier - an string or a list of strings identifying
     the DMRS. It should be unique, possibly using a composite
     identifier, given in list.
-    For instance one may use it as [textid, mrs-id] if the
+    For instance one may use it as [textid, dmrs-id] if the
     same text admits various mrs interpretations.
 
-    iname - the dmrs instance name (the mrs as RDF node name)
+    iname - the dmrs instance name (the dmrs as RDF node name)
     to be used. As default, it is "dmrsi#dmrs".
 
     graph - and rdflib graph. If given, uses it to store the
@@ -138,9 +138,6 @@ def dmrs_to_rdf(d, prefix: str, identifier, iname="dmrsi#dmrs", graph=None, out=
     format - file format to serialize the output into.
     """
 
-    # Before running this, use delphin.eds.make_ids_unique(e, m) if possible
-
-    # same graph for different EDSs
     if not graph: graph = Graph()
     if type(identifier) == list:
         identifier = "/".join(identifier)
