@@ -8,4 +8,4 @@ cd delphin-rdf
 pip install delphin/
 ```
 
-Then there will be three new subcomands in `pydelphin`, which are `profile_to_rdf` which converts the MRS on a profile for an RDF graph, `profile_to_eds_to_rdf` which converts the MRS on a profile to an EDS and then for a RDF graph and `profile_to_dmrs_to_rdf` which converts the MRS on a profile for RDMRS and then for a RDF graph
+Then there will be three new subcommands in `delphin`, which are `profile_to_rdf` which converts the MRS on a profile for an RDF graph, `profile_to_eds_to_rdf` which converts the MRS on a profile to an EDS and then for a RDF graph and `profile_to_dmrs_to_rdf` which converts the MRS on a profile to a DMRS and then for a RDF graph.
