@@ -59,9 +59,9 @@ def __nodes_to_rdf__(d, graph, dmrsi, NODES):
         
         #lnk
         if node.cfrom is not None:
-            graph.add((nodeIRI, EDS.cfrom, Literal(node.cfrom)))
+            graph.add((nodeIRI, DMRS.cfrom, Literal(node.cfrom)))
         if node.cto is not None:
-            graph.add((nodeIRI, EDS.cto, Literal(node.cto)))
+            graph.add((nodeIRI, DMRS.cto, Literal(node.cto)))
 
         #properties / sortinfo
         for prop, val in node.properties.items():

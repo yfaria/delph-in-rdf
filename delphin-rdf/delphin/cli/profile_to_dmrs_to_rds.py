@@ -33,8 +33,8 @@ def __cli_parse__(args):
         # parse mrs from profile
         m = simplemrs.decode(row[2])
         # transform to eds:
-        e = dmrs.from_mrs(m)
-        graph = p.dmrs_to_rdf(e=e, prefix=prefix,
+        d = dmrs.from_mrs(m)
+        graph = p.dmrs_to_rdf(d=d, prefix=prefix,
                               identifier=id, graph=graph, text=text)
     # serializes output
     graph.serialize(destination=args.output,format=args.format)
