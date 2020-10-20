@@ -28,6 +28,8 @@ def __cli_parse__(args):
     for row in tsql.select('i-id i-input mrs', ts):
         id = row[0]
         text = row[1]
+        if args.verbosity > 0:
+            print("Parsing sentence {}".format(id))
         m = simplemrs.decode(row[2])
         # parse mrs from profile
         graph = p.mrs_to_rdf(m=m, prefix=prefix,
